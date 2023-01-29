@@ -13,18 +13,17 @@ export default function ActivitiesScreen() {
   const [addModalVisible, setAddModalVisible] = useState(false);
 
   useEffect(() => {
-    console.log("in use effect")
-    getIncompleteActivities();
+    getPlannedActivities();
   }, [])
 
   const logout = () => {
     setUser(null);
   }
 
-  const getIncompleteActivities = async () => {
+  const getPlannedActivities = async () => {
     setIsLoading(true);
 
-    const q = query(collection(db, "activities"), where("status", "==", "pendingApproval"));
+    const q = query(collection(db, "activities"), where("status", "==", "planned"));
 
     let activities = [];
 

@@ -52,7 +52,7 @@ export default function AddActivityModal({ addModalVisible, setAddModalVisible }
         dateAdded: Timestamp.now()
       });
 
-      setStatusMessage(`Aktiviteten ${name} har lagts till 🎇`)
+      setStatusMessage(`Aktiviteten ${name} har lagts till 🤘`)
       setName("");
       setDescription("");
       setDatePickerVisible(false);

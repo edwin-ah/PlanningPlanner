@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { collection, query, where, onSnapshot } from 'firebase/firestore';
+import { collection, query, where, onSnapshot, orderBy } from 'firebase/firestore';
 
 export default function useActivitiesList(db, status) {
   const [activitiesList, setActivitiesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const q = query(collection(db, "activities"), where("status", "==", status));
+    const q = query(collection(db, "activities"), where("status", "==", status), orderBy("dateAdded"));
 
     const unsubscribe = onSnapshot(q, snapshot => {
       setActivitiesList(

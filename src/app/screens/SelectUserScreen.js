@@ -30,7 +30,7 @@ export default function SelectUserScreen() {
   return (
     <View className="h-full bg-gray-50 flex flex-col justify-center">
       <View className="max-w-md w-full mx-auto">
-        <Text className="text-center font-medium text-xl">Joannas & Edwins lista❤</Text>
+        <Text className="text-center font-medium text-xl">Joannas & Edwins lista</Text>
         <Text className="text-center font-bold text-gray-900 mt-2 text-3xl">Identifiera dig tack</Text>
       </View>
       <View className="max-w-sm w-full mx-auto mt-5 bg-white p-8 border border-gray-100">

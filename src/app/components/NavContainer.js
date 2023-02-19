@@ -7,11 +7,24 @@ import SelectUserScreen from '../screens/SelectUserScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import { AuthContext } from '../context_api/AuthContext';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ActivityDetailsScreen from '../screens/ActivityDetailsScreen';
+
+
+const ActivityStack = createNativeStackNavigator();
+function ActivityStackScreen() {
+  return (
+    <ActivityStack.Navigator screenOptions={{ headerShown: false }}>
+      <ActivityStack.Screen name="Activities" component={ActivitiesScreen} />
+      <ActivityStack.Screen name="ActivityDetails" component={ActivityDetailsScreen} />
+    </ActivityStack.Navigator>
+  )
+}
 
 
 const Tab = createMaterialBottomTabNavigator();
 export default function NavContainer() {
-
+  
   const [user, setUser] = useContext(AuthContext);
 
   return (
@@ -24,7 +37,7 @@ export default function NavContainer() {
     >
       {user ? (
         <>
-          <Tab.Screen name="Activities" component={ActivitiesScreen}
+          <Tab.Screen name="ActivitiesTab" component={ActivityStackScreen}
             options={{
               tabBarLabel: "Aktiviteter",
               tabBarIcon: ({ color }) => (
@@ -32,7 +45,7 @@ export default function NavContainer() {
               )
             }}
           />
-          <Tab.Screen name="Foods" component={FoodScreen}
+          <Tab.Screen name="FoodsTab" component={FoodScreen}
             options={{
               tabBarLabel: "Mat",
               tabBarIcon: ({ color }) => (
